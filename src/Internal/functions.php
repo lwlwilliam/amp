@@ -44,6 +44,7 @@ function formatStacktrace(array $trace): string
  */
 function isDebugEnabled(): bool
 {
+    /** @psalm-suppress RiskyTruthyFalsyComparison */
     $env = \getenv("AMP_DEBUG") ?: "0";
     return match ($env) {
         "0", "false", "off" => false,
